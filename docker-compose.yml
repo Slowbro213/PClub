@@ -94,6 +94,8 @@ services:
       - app-network
     depends_on:
       - mysql
+    ports:
+      - "127.0.0.1:7000:80"
 
 networks:
   app-network:
