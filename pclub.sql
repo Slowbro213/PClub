@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 27, 2025 at 10:40 PM
+-- Generation Time: Mar 02, 2025 at 06:34 PM
 -- Server version: 11.7.2-MariaDB
 -- PHP Version: 8.4.4
 
@@ -40,6 +40,36 @@ CREATE TABLE `admins` (
 
 INSERT INTO `admins` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_to_admin`
+--
+
+CREATE TABLE `admin_to_admin` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `admin_id` bigint(20) UNSIGNED NOT NULL,
+  `admin_id_2` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banned_users`
+--
+
+CREATE TABLE `banned_users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `google_id` varchar(255) DEFAULT NULL,
+  `banned_by` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -85,26 +115,26 @@ CREATE TABLE `coding_categories` (
 --
 
 INSERT INTO `coding_categories` (`id`, `name`, `description`, `difficulty_id`, `created_at`, `updated_at`) VALUES
-(1, 'Arrays', 'Arrays', 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(2, 'Strings', 'Strings', 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(3, 'Linked Lists', 'Linked Lists', 3, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(4, 'Stacks', 'Stacks', 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(5, 'Queues', 'Queues', 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(6, 'Trees', 'Trees', 3, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(7, 'Graphs', 'Graphs', 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(8, 'Dynamic Programming', 'Dynamic Programming', 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(9, 'Greedy Algorithms', 'Greedy Algorithms', 3, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(10, 'Bit Manipulation', 'Bit Manipulation', 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(11, 'Recursion', 'Recursion', 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(12, 'Searching', 'Searching', 3, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(13, 'Sorting', 'Sorting', 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(14, 'Hashing', 'Hashing', 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(15, 'Math', 'Math', 3, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(16, 'Geometry', 'Geometry', 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(17, 'Combinatorics', 'Combinatorics', 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(18, 'Probability', 'Probability', 3, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(19, 'Game Theory', 'Game Theory', 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(20, 'Miscellaneous', 'Miscellaneous', 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30');
+(1, 'Arrays', 'Arrays', 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(2, 'Strings', 'Strings', 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(3, 'Linked Lists', 'Linked Lists', 3, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(4, 'Stacks', 'Stacks', 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(5, 'Queues', 'Queues', 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(6, 'Trees', 'Trees', 3, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(7, 'Graphs', 'Graphs', 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(8, 'Dynamic Programming', 'Dynamic Programming', 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(9, 'Greedy Algorithms', 'Greedy Algorithms', 3, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(10, 'Bit Manipulation', 'Bit Manipulation', 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(11, 'Recursion', 'Recursion', 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(12, 'Searching', 'Searching', 3, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(13, 'Sorting', 'Sorting', 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(14, 'Hashing', 'Hashing', 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(15, 'Math', 'Math', 3, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(16, 'Geometry', 'Geometry', 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(17, 'Combinatorics', 'Combinatorics', 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(18, 'Probability', 'Probability', 3, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(19, 'Game Theory', 'Game Theory', 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(20, 'Miscellaneous', 'Miscellaneous', 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08');
 
 -- --------------------------------------------------------
 
@@ -151,9 +181,9 @@ CREATE TABLE `coding_challanges` (
 --
 
 INSERT INTO `coding_challanges` (`id`, `name`, `description`, `difficulty_id`, `created_at`, `updated_at`) VALUES
-(1, 'Sum of n numbers', '<h3><strong style=\"color: rgb(255, 255, 255);\">Problem: Sum of Array Elements</strong></h3><h4><strong style=\"color: rgb(255, 255, 255);\">Difficulty:</strong><span style=\"color: rgb(255, 255, 255);\"> Easy</span></h4><h4><strong style=\"color: rgb(255, 255, 255);\">Problem Statement</strong></h4><p><span style=\"color: rgb(255, 255, 255);\">Given an array of integers </span><code style=\"color: rgb(255, 255, 255);\">nums</code><span style=\"color: rgb(255, 255, 255);\">, return the sum of all elements in the array.</span></p><h4><strong style=\"color: rgb(255, 255, 255);\">Example 1:</strong></h4><p><strong style=\"color: rgb(255, 255, 255);\">Input:</strong><span style=\"color: rgb(255, 255, 255);\"> n = 5 , nums = [1, 2, 3, 4, 5]</span></p><p><strong style=\"color: rgb(255, 255, 255);\">Output:</strong><span style=\"color: rgb(255, 255, 255);\"> 15</span></p><p><strong style=\"color: rgb(255, 255, 255);\">Explanation:</strong><span style=\"color: rgb(255, 255, 255);\"> 1 + 2 + 3 + 4 + 5 = 15</span></p><h4><strong style=\"color: rgb(255, 255, 255);\">Example 2:</strong></h4><p><strong style=\"color: rgb(255, 255, 255);\">Input:</strong><span style=\"color: rgb(255, 255, 255);\"> n = 4,  nums = [10, -2, 7, 3]</span></p><p><strong style=\"color: rgb(255, 255, 255);\">Output:</strong><span style=\"color: rgb(255, 255, 255);\"> 18</span></p><p><strong style=\"color: rgb(255, 255, 255);\">Explanation:</strong><span style=\"color: rgb(255, 255, 255);\"> 10 + (-2) + 7 + 3 = 18</span></p>', 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(2, 'Test', 'This is a test', 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(3, 'Test 2', 'This is a test 2', 3, '2025-02-27 21:52:30', '2025-02-27 21:52:30');
+(1, 'Sum of n numbers', '<h3><strong style=\"color: rgb(255, 255, 255);\">Problem: Sum of Array Elements</strong></h3><h4><strong style=\"color: rgb(255, 255, 255);\">Difficulty:</strong><span style=\"color: rgb(255, 255, 255);\"> Easy</span></h4><h4><strong style=\"color: rgb(255, 255, 255);\">Problem Statement</strong></h4><p><span style=\"color: rgb(255, 255, 255);\">Given an array of integers </span><code style=\"color: rgb(255, 255, 255);\">nums</code><span style=\"color: rgb(255, 255, 255);\">, return the sum of all elements in the array.</span></p><h4><strong style=\"color: rgb(255, 255, 255);\">Example 1:</strong></h4><p><strong style=\"color: rgb(255, 255, 255);\">Input:</strong><span style=\"color: rgb(255, 255, 255);\"> n = 5 , nums = [1, 2, 3, 4, 5]</span></p><p><strong style=\"color: rgb(255, 255, 255);\">Output:</strong><span style=\"color: rgb(255, 255, 255);\"> 15</span></p><p><strong style=\"color: rgb(255, 255, 255);\">Explanation:</strong><span style=\"color: rgb(255, 255, 255);\"> 1 + 2 + 3 + 4 + 5 = 15</span></p><h4><strong style=\"color: rgb(255, 255, 255);\">Example 2:</strong></h4><p><strong style=\"color: rgb(255, 255, 255);\">Input:</strong><span style=\"color: rgb(255, 255, 255);\"> n = 4,  nums = [10, -2, 7, 3]</span></p><p><strong style=\"color: rgb(255, 255, 255);\">Output:</strong><span style=\"color: rgb(255, 255, 255);\"> 18</span></p><p><strong style=\"color: rgb(255, 255, 255);\">Explanation:</strong><span style=\"color: rgb(255, 255, 255);\"> 10 + (-2) + 7 + 3 = 18</span></p>', 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(2, 'Test', 'This is a test', 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(3, 'Test 2', 'This is a test 2', 3, '2025-03-02 18:18:08', '2025-03-02 18:18:08');
 
 -- --------------------------------------------------------
 
@@ -214,6 +244,7 @@ CREATE TABLE `competitions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `elo` double NOT NULL DEFAULT 1500,
   `start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL,
   `difficulty_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -225,8 +256,8 @@ CREATE TABLE `competitions` (
 -- Dumping data for table `competitions`
 --
 
-INSERT INTO `competitions` (`id`, `name`, `description`, `start_date`, `end_date`, `difficulty_id`, `created_at`, `updated_at`) VALUES
-(1, 'Test Competition', 'This is a test competition', '2025-02-27 21:52:30', '2025-02-28 21:52:30', 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30');
+INSERT INTO `competitions` (`id`, `name`, `description`, `elo`, `start_date`, `end_date`, `difficulty_id`, `created_at`, `updated_at`) VALUES
+(1, 'Test Competition', 'This is a test competition', 1500, '2025-03-02 18:19:08', '2025-03-02 18:20:08', 1, '2025-03-02 18:18:08', '2025-03-02 18:18:27');
 
 -- --------------------------------------------------------
 
@@ -249,7 +280,7 @@ CREATE TABLE `competition_user` (
 
 INSERT INTO `competition_user` (`id`, `user_id`, `competition_id`, `score`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 0, NULL, NULL),
-(2, 2, 1, 0, NULL, NULL);
+(2, 2, 1, 100, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -270,9 +301,9 @@ CREATE TABLE `difficulties` (
 --
 
 INSERT INTO `difficulties` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Easy', 'Easy', '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(2, 'Medium', 'Medium', '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(3, 'Hard', 'Hard', '2025-02-27 21:52:30', '2025-02-27 21:52:30');
+(1, 'Easy', 'Easy', '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(2, 'Medium', 'Medium', '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(3, 'Hard', 'Hard', '2025-03-02 18:18:08', '2025-03-02 18:18:08');
 
 -- --------------------------------------------------------
 
@@ -360,9 +391,9 @@ CREATE TABLE `languages` (
 --
 
 INSERT INTO `languages` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'c', '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(2, 'java', '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(3, 'python', '2025-02-27 21:52:30', '2025-02-27 21:52:30');
+(1, 'c', '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(2, 'java', '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(3, 'python', '2025-03-02 18:18:08', '2025-03-02 18:18:08');
 
 -- --------------------------------------------------------
 
@@ -459,6 +490,13 @@ CREATE TABLE `submissions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `submissions`
+--
+
+INSERT INTO `submissions` (`id`, `user_id`, `coding_challange_id`, `competition_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 1, 'Success!', '2025-03-02 18:19:29', '2025-03-02 18:19:29');
+
 -- --------------------------------------------------------
 
 --
@@ -471,6 +509,13 @@ CREATE TABLE `successful_submissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `successful_submissions`
+--
+
+INSERT INTO `successful_submissions` (`id`, `submission_id`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -493,11 +538,11 @@ CREATE TABLE `templates` (
 --
 
 INSERT INTO `templates` (`id`, `code`, `format`, `coding_challange_id`, `language_id`, `created_at`, `updated_at`) VALUES
-(1, '#include <stdio.h>\n\nint shuma(int arr[], int size);\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n\n    int arr[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    printf(\"%d\", shuma(arr, n));\n    return 0;\n}', '\nint shuma(int arr[], int size){\n    // Your code here\n}', 1, 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(2, 'import java.util.Scanner;\n\nclass Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int n = scanner.nextInt();\n        Shuma shuma = new Shuma();\n\n        int[] arr = new int[n];\n        for (int i = 0; i < n; i++) {\n            arr[i] = scanner.nextInt();\n        }\n\n        System.out.println(shuma.shuma(arr));\n    }\n}', 'class Shuma{\n     public int shuma(int[] arr){\n        // Your code here\n    }\n}', 1, 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(3, 'n = int(input())\n\narr = []\nfor i in range(n):\n    arr.append(int(input()))\n\nprint(shuma(arr))', 'def shuma(arr):\n    # Your code here\n    pass', 1, 3, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(4, '// Code', '// Your code here', 2, 1, '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(5, '// Code', '// Your code here', 3, 2, '2025-02-27 21:52:30', '2025-02-27 21:52:30');
+(1, '#include <stdio.h>\n\nint shuma(int arr[], int size);\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n\n    int arr[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    printf(\"%d\", shuma(arr, n));\n    return 0;\n}', '\nint shuma(int arr[], int size){\n    // Your code here\n}', 1, 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(2, 'import java.util.Scanner;\n\nclass Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int n = scanner.nextInt();\n        Shuma shuma = new Shuma();\n\n        int[] arr = new int[n];\n        for (int i = 0; i < n; i++) {\n            arr[i] = scanner.nextInt();\n        }\n\n        System.out.println(shuma.shuma(arr));\n    }\n}', 'class Shuma{\n     public int shuma(int[] arr){\n        // Your code here\n    }\n}', 1, 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(3, 'n = int(input())\n\narr = []\nfor i in range(n):\n    arr.append(int(input()))\n\nprint(shuma(arr))', 'def shuma(arr):\n    # Your code here\n    pass', 1, 3, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(4, '// Code', '// Your code here', 2, 1, '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(5, '// Code', '// Your code here', 3, 2, '2025-03-02 18:18:08', '2025-03-02 18:18:08');
 
 -- --------------------------------------------------------
 
@@ -519,10 +564,10 @@ CREATE TABLE `tests` (
 --
 
 INSERT INTO `tests` (`id`, `coding_challange_id`, `input`, `output`, `created_at`, `updated_at`) VALUES
-(1, 1, '3\\n1\\n2\\n3', '6', '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(2, 1, '5\\n1\\n2\\n3\\n4\\n5', '15', '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(3, 2, '3\\n1\\n2\\n3', '6', '2025-02-27 21:52:30', '2025-02-27 21:52:30'),
-(4, 3, '3\\n1\\n2\\n3', '6', '2025-02-27 21:52:30', '2025-02-27 21:52:30');
+(1, 1, '3\\n1\\n2\\n3', '6', '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(2, 1, '5\\n1\\n2\\n3\\n4\\n5', '15', '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(3, 2, '3\\n1\\n2\\n3', '6', '2025-03-02 18:18:08', '2025-03-02 18:18:08'),
+(4, 3, '3\\n1\\n2\\n3', '6', '2025-03-02 18:18:08', '2025-03-02 18:18:08');
 
 -- --------------------------------------------------------
 
@@ -537,6 +582,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `google_id` varchar(255) DEFAULT NULL,
+  `elo` int(11) NOT NULL DEFAULT 1200,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -546,9 +592,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `google_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Thanas Papa', 'thanas.papa.24@gmail.com', '2025-02-27 21:52:29', '$2y$12$erv3guc7DnN52KInS05Y5O1up3Xd8kNGEIXUAVdCYRjUKojvRLX1S', '103580523380083322392', '9awZeQZ6N2cig8h7JVLOEaOICVVMAOV9gmFA5w00Ux683TrL0zfMu3oPmCyP', '2025-02-27 21:52:29', '2025-02-27 21:52:29'),
-(2, 'Imposter', 'tpapa22@epoka.edu.al', '2025-02-27 21:52:30', '$2y$12$5tn25uujbAoaz1NzowVR3eZDErdFoHsk3sbK3Z..qKAISKW0tsS9S', '103328304927085617861', 'VJsWNz5wJvam2KStkMEXdJ1D3wDMBaOgKPHQqqORYH2wcj7US1hsOmubpZVg', '2025-02-27 21:52:30', '2025-02-27 22:11:52');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `google_id`, `elo`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Thanas Papa', 'thanas.papa.24@gmail.com', '2025-03-02 18:18:07', '$2y$12$z/dknNRRVQCMZZRRZX3e1Ofez5ZI5bIPQFdkregLOZFwEI6tVgThS', '103580523380083322392', 1195, '8bJZFV7xOGm8LqsPqNIKABqJcY2DNxfxV5klvCAZjWbcPGextcnhyTGaHqPA', '2025-03-02 18:18:07', '2025-03-02 18:20:08'),
+(2, 'Imposter', 'tpapa22@epoka.edu.al', '2025-03-02 18:18:08', '$2y$12$e9oktqFiGXV2KR5pBIA6pexltl0FoueS85na2GQpJdZqFAI.7siS2', '103328304927085617861', 1206, 'Jqwg5sYsKrbZfZy1MdZc7jfvCKB73Dau1F3sjzvUhUc4cREx6DrbzuspR3Ax', '2025-03-02 18:18:08', '2025-03-02 18:20:08');
 
 --
 -- Indexes for dumped tables
@@ -560,6 +606,23 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `go
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admins_user_id_unique` (`user_id`);
+
+--
+-- Indexes for table `admin_to_admin`
+--
+ALTER TABLE `admin_to_admin`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `admin_to_admin_admin_id_foreign` (`admin_id`),
+  ADD KEY `admin_to_admin_admin_id_2_foreign` (`admin_id_2`);
+
+--
+-- Indexes for table `banned_users`
+--
+ALTER TABLE `banned_users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `banned_users_user_id_unique` (`user_id`),
+  ADD UNIQUE KEY `banned_users_google_id_unique` (`google_id`),
+  ADD KEY `banned_users_banned_by_foreign` (`banned_by`);
 
 --
 -- Indexes for table `cache`
@@ -739,6 +802,18 @@ ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `admin_to_admin`
+--
+ALTER TABLE `admin_to_admin`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `banned_users`
+--
+ALTER TABLE `banned_users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `coding_categories`
 --
 ALTER TABLE `coding_categories`
@@ -826,13 +901,13 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `submissions`
 --
 ALTER TABLE `submissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `successful_submissions`
 --
 ALTER TABLE `successful_submissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `templates`
@@ -850,7 +925,7 @@ ALTER TABLE `tests`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -861,6 +936,20 @@ ALTER TABLE `users`
 --
 ALTER TABLE `admins`
   ADD CONSTRAINT `admins_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `admin_to_admin`
+--
+ALTER TABLE `admin_to_admin`
+  ADD CONSTRAINT `admin_to_admin_admin_id_2_foreign` FOREIGN KEY (`admin_id_2`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `admin_to_admin_admin_id_foreign` FOREIGN KEY (`admin_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `banned_users`
+--
+ALTER TABLE `banned_users`
+  ADD CONSTRAINT `banned_users_banned_by_foreign` FOREIGN KEY (`banned_by`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `banned_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `coding_categories`
