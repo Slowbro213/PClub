@@ -21,7 +21,7 @@ services:
       - EXECUTOR_PORT=80
       - EXECUTOR_ROUTE=api/execute
     volumes:
-      - /var/www/storage
+      - "./Programmingclub/storage/app/public:/var/www/storage/app/public"
     networks:
       - app-network
     depends_on:
