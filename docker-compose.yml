@@ -76,6 +76,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./ssl:/etc/nginx/ssl
+      - /etc/letsencrypt/live/epokaprogrammingclub:/etc/letsencrypt/live/epokaprogrammingclub
     networks:
       - app-network
     depends_on:
